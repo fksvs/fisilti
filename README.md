@@ -1,18 +1,20 @@
 ## TODO:
 
 Phase 1:
-- [ ] Design: In-memory database
+- [ ] Design: Architecture
+- [ ] Design: In-memory storage
 - [ ] Design: Encryption
-- [ ] Design: Core algorithm
 
 Phase 2:
-- [ ] Feature: HTTP API
-- [ ] Feature: Data expiration time
+- [ ] Implementation: Encryption engine
+- [ ] Implementation: Storage engine
+- [ ] Implementation: HTTP API
+- [ ] Implementation: Data expiration time
 
 Phase 3:
-- [ ] Feature: Web UI
-- [ ] Feature: Containerization
+- [ ] Implementation: Web UI
+- [ ] Implementation: Containerization
 
 Phase 4:
-- [ ] Feature: User-defined passwords
-- [ ] Feature: Tor support
+- [ ] Implementation: User-defined passwords
+- [ ] Implementation: Tor support

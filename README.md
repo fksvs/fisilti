@@ -1,7 +1,7 @@
 ## TODO:
 
 Phase 1:
-- [ ] Design: Architecture
+- [X] Design: Architecture
 - [ ] Design: In-memory storage
 - [ ] Design: Encryption
 

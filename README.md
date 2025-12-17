@@ -1,9 +1,9 @@
 ## TODO:
 
 Phase 1:
-- [ ] Design: Architecture
+- [X] Design: Architecture
 - [ ] Design: In-memory storage
-- [ ] Design: Encryption
+- [X] Design: Encryption
 
 Phase 2:
 - [ ] Implementation: Encryption engine

@@ -2,14 +2,14 @@
 
 Phase 1:
 - [X] Design: Architecture
-- [ ] Design: In-memory storage
+- [X] Design: In-memory storage
 - [X] Design: Encryption
 
 Phase 2:
-- [ ] Implementation: Encryption engine
-- [ ] Implementation: Storage engine
+- [X] Implementation: Encryption engine
+- [X] Implementation: Storage engine
 - [ ] Implementation: HTTP API
-- [ ] Implementation: Data expiration time
+- [X] Implementation: Data expiration time
 
 Phase 3:
 - [ ] Implementation: Web UI

@@ -1,10 +1,12 @@
 package cipher
 
+
 import (
 	"crypto/aes"
 	"crypto/rand"
 	"crypto/cipher"
 	"crypto/sha256"
+	"encoding/hex"
 	"io"
 )
 
@@ -58,13 +60,13 @@ func DecryptData(key []byte, ciphertext []byte) ([]byte, error) {
 	return plaintext, nil
 }
 
-func GenerateHashID() ([]byte, error) {
+func GenerateHashID() (string, error) {
 	id := make([]byte, 32)
 	_, err := rand.Read(id)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 
 	hash := sha256.Sum256(id)
-	return hash[:], nil
+	return hex.EncodeToString(hash[:]), nil
 }

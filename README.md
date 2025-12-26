@@ -8,7 +8,7 @@ Phase 1:
 Phase 2:
 - [X] Implementation: Encryption engine
 - [X] Implementation: Storage engine
-- [ ] Implementation: HTTP API
+- [X] Implementation: HTTP API
 - [X] Implementation: Data expiration time
 
 Phase 3:

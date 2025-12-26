@@ -18,6 +18,11 @@ type Storage struct {
 	data map[string]Secret
 }
 
+var (
+	ErrNotFound = errors.New("secret not found")
+	ErrExpired  = errors.New("secret expired")
+)
+
 func InitStorage() *Storage {
 	return &Storage {
 		data: make(map[string]Secret),
@@ -33,7 +38,7 @@ func (s *Storage) CreateEntry(data []byte, duration time.Duration) (string, erro
 		return "", err
 	}
 
-	id := string(hash)
+	id := hash
 	s.data[id] = Secret{
 		ExpiresAt: time.Now().Add(duration),
 		Data: data,
@@ -48,13 +53,13 @@ func (s *Storage) GetAndDelete(id string) ([]byte, error) {
 
 	val, exists := s.data[id]
 	if !exists {
-		return nil, errors.New("not found")
+		return nil, ErrNotFound
 	}
 
 	delete(s.data, id)
 
 	if time.Now().After(val.ExpiresAt) {
-		return nil, errors.New("expired")
+		return nil, ErrExpired
 	}
 
 	return val.Data, nil

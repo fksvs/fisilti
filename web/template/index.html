@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisilti - Secure Secret Sharing</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Toggle Theme">
+            ◑
+        </button>
+
+        <div class="header">
+            <h1 class="title">Fisilti</h1>
+            <p class="description">
+                Share sensitive information securely.<br>
+                Encrypted in your browser. Burned after reading.
+            </p>
+        </div>
+        
+        <div id="create-form">
+            <textarea id="secret-text" placeholder="Write your secret here..."></textarea>
+            
+            <label class="duration-label">Self-destruct timer (Max 24h)</label>
+            <div class="time-inputs">
+                <div class="time-field">
+                    <input type="number" id="ttl-hours" min="0" max="24" value="0" placeholder="0">
+                    <span>Hours</span>
+                </div>
+                <div class="time-field">
+                    <input type="number" id="ttl-minutes" min="0" max="59" value="5" placeholder="0">
+                    <span>Minutes</span>
+                </div>
+                <div class="time-field">
+                    <input type="number" id="ttl-seconds" min="0" max="59" value="0" placeholder="0">
+                    <span>Seconds</span>
+                </div>
+            </div>
+            
+            <button id="create-btn" onclick="createSecret()">Create Secret</button>
+            <div id="error-msg" class="error-msg"></div>
+        </div>
+
+        <div id="result-area" class="hidden">
+            <p style="color: var(--muted-color); margin-top:0;">Your secure link:</p>
+            <input type="text" id="result-link" readonly style="width:100%; padding:10px; margin-bottom:10px; background:var(--bg-color); border:1px solid var(--input-border); color:var(--text-color); border-radius:4px;">
+            <button onclick="navigator.clipboard.writeText(document.getElementById('result-link').value)">Copy Link</button>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+    </script>
+</body>
+</html>

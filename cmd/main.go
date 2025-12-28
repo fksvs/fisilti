@@ -16,5 +16,5 @@ func main() {
 
 	api := api.NewAPI(secretStore, masterKey)
 
-	api.Router.Run(":8080")
+	api.Router.RunTLS(":8080", "./certs/cert.pem", "./certs/key.pem")
 }

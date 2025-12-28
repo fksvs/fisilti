@@ -14,7 +14,10 @@ profile.cov
 go.work
 go.work.sum
 
-.env
+*.env
 
 .vscode/
 *.swp
+
+certs/*.pem
+certs/*.key

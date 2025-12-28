@@ -29,8 +29,22 @@ func NewAPI(secretStore *storage.Storage, masterKey []byte) *API {
 	api.MasterKey = masterKey
 	api.Router = router
 
-	router.POST("/api/v1/secret", api.createSecret)
-	router.GET("/api/v1/secret/:id", api.getSecret)
+	router.Static("/static", "./web/static")
+	router.LoadHTMLGlob("web/template/*")
+
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", nil)
+	})
+
+	router.GET("/view/:id", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "view.html", nil)
+	})
+
+	v1 := router.Group("/api/v1")
+	{
+		v1.POST("/secret", api.createSecret)
+		v1.GET("/secret/:id", api.getSecret)
+	}
 
 	return &api
 }

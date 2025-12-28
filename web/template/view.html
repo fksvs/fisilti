@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisilti - Reveal Secret</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()">◑</button>
+
+        <div class="header">
+            <h1 class="title">Fisilti</h1>
+        </div>
+        
+        <div id="view-area">
+            <div id="warning-msg" style="background-color: rgba(255, 159, 67, 0.1); border: 1px solid #ff9f43; color: #ff9f43; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem;">
+                <strong>Warning:</strong> Viewing this secret will destroy it permanently.
+            </div>
+
+            <button id="reveal-btn" onclick="revealSecret()">Reveal Secret</button>
+            
+            <div id="secret-display" class="hidden">
+                <div id="secret-content" style="background: var(--input-bg); color: var(--text-color); padding: 20px; border-radius: 8px; border: 1px solid var(--input-border); white-space: pre-wrap; text-align: left; font-family: monospace; font-size: 1rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
+    </script>
+</body>
+</html>

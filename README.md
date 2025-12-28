@@ -12,7 +12,7 @@ Phase 2:
 - [X] Implementation: Data expiration time
 
 Phase 3:
-- [ ] Implementation: Web UI
+- [X] Implementation: Web UI
 - [ ] Implementation: Containerization
 
 Phase 4:

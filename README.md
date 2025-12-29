@@ -58,6 +58,7 @@ Fisilti uses a Client-Side Encryption model to ensure privacy.
 
 - OpenSSL (for generating development certificates).
 
+- Docker (if you want to run the project as container)
 
 1. Clone the Repository
 
@@ -86,10 +87,27 @@ go run cmd/main.go
 Open your browser and navigate to:
 
 ```
-https://localhost:8443
+https://localhost:8080
 ```
 
 Note: You will see a security warning because the certificate is self-signed. Click "Advanced" -> "Proceed" to accept it.
+
+
+### Building with Docker
+
+1. Build the project
+
+```
+docker build -t fisilti .
+```
+
+2. Run the container
+
+Generate the certificates first!
+
+```
+docker run -d -p 8080:8080 -v "$(pwd)"/certs:/app/certs:Z fisilti:latest
+```
 
 ## Contributing
 
@@ -114,7 +132,7 @@ Phase 2:
 
 Phase 3:
 - [X] Implementation: Web UI
-- [ ] Implementation: Containerization
+- [X] Implementation: Containerization
 
 Phase 4:
 - [ ] Implementation: User-defined passwords
